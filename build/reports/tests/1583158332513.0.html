@@ -1,0 +1,808 @@
+<html><head>
+    <meta charset="UTF-8">
+    <title>KPortal 2.0: TEST - Controle de CEACs</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="http://kdocs.homolog.br.kworld.kpmg.com/Assets/img/favicon.ico" rel="icon">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/btn-tooltip.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/fa.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/dataTable.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap-select.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/datepicker.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap-clockpicker.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap-switch.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/introjs.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/parsley.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/example.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/prism.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/calendar.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap-switch.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/kportal.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/css/jquery-ui.min.css">
+    <link href="/Assets/css/jquery-confirm.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/Assets/app/Shared/master.css">
+
+    <script src="/Assets/js/jquery.min.js"></script>
+<script src="/Assets/js/jquery-ui.min.js"></script>
+<script src="/Assets/js/date-pt-BR.js"></script>
+<script src="/Assets/js/jquery.unobtrusive-ajax.min.js"></script>
+<script src="/Assets/js/jquery.validate.min.js"></script>
+<script src="/Assets/js/jquery.validate.unobtrusive.min.js"></script>
+<script src="/Scripts/jquery-confirm.min.js"></script>
+<script src="/Assets/js/jquery.cfjs.js"></script>
+<script src="/Assets/js/jquery.blockUI.js"></script>
+<script src="/Assets/js/editor.js"></script>
+<script src="/Assets/js/introjs.js"></script>
+<script src="/Assets/js/jquery.multi-select.js"></script>
+<script src="/Assets/js/jquery.mask.js"></script>
+<script src="/Assets/js/jquery.maskMoney.js"></script>
+<script src="/Assets/js/jquery.priceformat.js"></script>
+<script src="/Assets/js/jquery.datepicker.js"></script>
+<script src="/Assets/js/jquery.daterangepicker.js"></script>
+<script src="/Assets/js/jquery.dataTable.js"></script>
+<script src="/Assets/js/bootstrap.js"></script>
+<script src="/Assets/js/bootstrap-select.js"></script>
+<script src="/Assets/js/bootstrap-dialog.min.js"></script>
+<script src="/Assets/js/bootstrap-switch.js"></script>
+<script src="/Assets/js/bootstrap-clockpicker.js"></script>
+<script src="/Assets/js/calendar/language/pt-BR.js"></script>
+<script src="/Assets/js/calendar.js"></script>
+<script src="/Assets/js/dataTables.fixedHeader.js"></script>
+<script src="/Assets/js/parsley.js"></script>
+<script src="/Assets/js/validator.js"></script>
+<script src="/Assets/js/prism.js"></script>
+<script src="/Assets/js/bootbox.js"></script>
+<script src="/Assets/js/underscore-min.js"></script>
+<script src="/Assets/js/kportalcore.js"></script>
+<script src="/Assets/js/kportal.js"></script>
+<script src="/Assets/js/kportal_customtags.js"></script>
+<script src="/Scripts/app/master.js"></script>
+
+</head>
+<body class="" style="padding-right: 17px;">
+
+
+    <header>
+        <div class="container-fluid ktop">
+            <div class="row">
+                <img src="http://kdocs.homolog.br.kworld.kpmg.com/Assets/img/TopBranding.jpg">
+                <h1>TEST - Controle de CEACs</h1>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-collapse collapse" id="navbar" aria-expanded="false">
+
+                    <ul class="nav navbar-nav kmenu"><li><a href="/Home">Página Inicial</a></li><li><a href="/SPAuditRM">Gerenciamento SP Audit RM</a></li><li><a href="/Review">Revisão</a></li><li><a href="/ReviewRMManager">Revisão Gerência RM</a></li><li><a href="/AUDManager">Time AUD</a></li><li><a href="/ApprovalsManagement">Gerenciamento de Aprovações</a></li><li><a href="/Approvals">Aprovação</a></li><li><a href="/Dashboard">Dashboard</a></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administração</a><ul class="dropdown-menu" role="menu"><li><a href="/Approver">Aprovadores</a></li><li><a href="/Checklist">Categorias (Checklist)</a></li><li><a href="/Checklist/Fields">Campos (Checklist) </a></li><li><a href="/UserFromTo">De / Para Sócios e Gerentes</a></li><li><a href="/TemplateEmail">E-mails</a></li><li><a href="/Group">Grupos de Revisão</a></li><li><a href="/UserGroups">Profissional Por Grupo e Função</a></li></ul></li><li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Relatórios</a><ul class="dropdown-menu" role="menu"><li><a href="http://test.reports.br.kworld.kpmg.com/ReportServer/Pages/ReportViewer.aspx?%2fCEACControl%2fReports%2fRelCEAC&amp;rs:Command=Render">Relatório de CEACs</a></li><li><a href="http://test.reports.br.kworld.kpmg.com/ReportServer/Pages/ReportViewer.aspx?%2fCEACControl%2fReports%2fRelCEACListHistoric&amp;rs:Command=Render">Relatório Históricos de CEACs</a></li></ul></li></ul>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                    <p><span class="glyphicon glyphicon-user"></span>&nbsp; Rafael Fernandes Nicola</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="container-fluid kprincipal">
+        <div class="row">
+            <div class="col-md-12">
+                
+
+
+<link href="/Assets/app/SPAuditRM/index.css" rel="stylesheet">
+<script src="/Scripts/app/SPAuditRM/index.js"></script>
+
+<h1>Gerenciamento SP Audit RM</h1>
+
+<nav class="navbar navbar-default actionbar">
+    <div class="container-fluid">
+        <div class="navbar-collapse collapse" id="navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+
+                <li>
+                    <a id="Upload">
+                        <i class="glyphicon glyphicon-upload"></i> Realizar upload da planilha
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/SPAuditRM/DownloadModel" target="_blank" rel="noopener noreferrer">
+                        <i class="glyphicon glyphicon-download"></i> Modelo Upload de CEACs
+                    </a>
+                </li>
+
+                <li class="actionBarEditLine">
+                    <a id="View">
+                        <i class="glyphicon glyphicon-file"></i> Visualizar
+                    </a>
+                </li>
+
+                <li id="btn-ceac-edit" style="display: none;">
+                    <a id="Edit">
+                        <i class="glyphicon glyphicon-pencil"></i> Editar
+                    </a>
+                </li>
+
+                <li id="chk-recovery" style="display: list-item;">
+                    <a id="Recovery">
+                        <i class="glyphicon glyphicon-repeat"></i> Recuperar
+                    </a>
+                </li>
+
+                <li id="chk-cancel" style="display: none;">
+                    <a id="Cancel">
+                        <i class="glyphicon glyphicon-remove"></i> Cancelar
+                    </a>
+                </li>
+
+                <li id="chk-send">
+                    <a id="Send">
+                        <i class="glyphicon glyphicon-send"></i> Definir responsável/pré-revisor
+                    </a>
+                </li>
+                <li id="chk-alter-group">
+                    <a id="AlterGroupUser">
+                        <i class="glyphicon glyphicon-refresh"></i> Alterar Grupo/Profissional Revisor
+                    </a>
+                </li>
+
+                <li id="btn-set-oversight" style="display: none;">
+                    <a id="SetAsOversight">
+                        <i class="glyphicon glyphicon-eye-open"></i> Marcar Oversight
+                    </a>
+                </li>
+
+                <li id="btn-remove-oversight" style="display: none;">
+                    <a id="RemoveOversight">
+                        <i class="glyphicon glyphicon-eye-close"></i> Desmarcar Oversight
+                    </a>
+                </li>
+
+            <li></li><li><a class="" id="ToolTables_tableAllFieldsCeacs_1" title="Visualizar impressão" tabindex="0" aria-controls="tableAllFieldsCeacs" style="cursor: pointer;"><span><i class="glyphicon glyphicon-print"></i> Imprimir</span></a></li></ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<input type="hidden" name="ERRORS_LIST" id="ERRORS_LIST" value=""><div class="help-block with-errors"></div>
+<input type="hidden" name="HAS_ERRORS" id="HAS_ERRORS" value="0"><div class="help-block with-errors"></div>
+<input type="hidden" name="HAS_OK" id="HAS_OK" value="0"><div class="help-block with-errors"></div>
+
+<div id="container-FILE_UPLOAD">
+    <input type="file" name="FILE_UPLOAD" id="FILE_UPLOAD" data-file-extensions=".xlsx" value="" data-val="true" aria-required="true" aria-describedby="FILE-error" data-error="Selecione um arquivo"><div class="input-group file"><input class="form-control" type="text" disabled="disabled" placeholder="Selecione um arquivo"><span class="input-group-addon browse"><i class="glyphicon glyphicon-search"></i></span></div><div class="help-block with-errors"></div>
+    <span class="text-danger field-validation-error" data-valmsg-for="FILE_UPLOAD" data-valmsg-replace="true"></span>
+
+</div>
+
+
+
+<div class="help-block with-errors"></div>
+
+<div id="container-tableAllFieldsCeacs">
+    <div id="tableAllFieldsCeacs_wrapper" class="dataTables_wrapper no-footer"><div class="DTTT_container"></div><div class="clear"></div><div class="dataTables_length" id="tableAllFieldsCeacs_length"></div>
+
+<input id="JsonCEACDependencyItems" name="JsonCEACDependencyItems" type="hidden" value="[{&quot;PARENT&quot;:81,&quot;CHILD&quot;:166}]">
+
+<div id="container-tableAllFieldsCeacs">
+    <div id="tableAllFieldsCeacs_wrapper" class="dataTables_wrapper no-footer"><div class="DTTT_container"></div><div class="ColVis"><button class="ColVis_Button ColVis_MasterButton"><span>Colunas</span></button></div><div class="clear"></div><div class="dataTables_length" id="tableAllFieldsCeacs_length"><label><select name="tableAllFieldsCeacs_length" aria-controls="tableAllFieldsCeacs" class="bs-select-hidden"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select><div class="btn-group bootstrap-select"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown"><span class="filter-option pull-left">10</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">25</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">50</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">100</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div> resultados por página</label></div><div id="tableAllFieldsCeacs_filter" class="dataTables_filter"><label>Busca<input type="search" class="" placeholder="" aria-controls="tableAllFieldsCeacs"></label></div><div class="jumbotron filter" style="display: block;">
+
+    <div class="row">
+        <div class="col-md-1">
+            <div class="form-group">
+                <label class="control-label" for="CEAC_ID_FILTER">CEAC ID</label>
+                <input name="CEAC_ID_FILTER" class="form-control" id="CEAC_ID_FILTER" maxlength="10" type="text" value=""><div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" for="CEAC_TYPE_FILTER">CEAC Type</label>
+                <select name="CEAC_TYPE_FILTER" class="form-control bs-select-hidden" id="CEAC_TYPE_FILTER" maxlength="500"><option value=""></option>
+<option value="Client">Client</option>
+<option value="Engagement">Engagement</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="CEAC_TYPE_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Client</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Engagement</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" for="EVALUATION_TYPE_FILTER">Evaluation Type</label>
+                <select name="EVALUATION_TYPE_FILTER" class="form-control bs-select-hidden" id="EVALUATION_TYPE_FILTER" maxlength="6" type="number"><option value=""></option>
+<option value="Acceptance">Acceptance</option>
+<option value="Continuance">Continuance</option>
+<option value="Continuance_ReEvaluation">Continuance-ReEvaluation</option>
+<option value="Re_Evaluation">Re-Evaluation</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="EVALUATION_TYPE_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Acceptance</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Continuance</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Continuance-ReEvaluation</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Re-Evaluation</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" for="RISK_GRADE_FILTER">Risk Grade</label>
+                <select name="RISK_GRADE_FILTER" class="form-control bs-select-hidden" id="RISK_GRADE_FILTER" maxlength="500"><option value=""></option>
+<option value="Low">Low</option>
+<option value="Medium">Medium</option>
+<option value="High">High</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="RISK_GRADE_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Low</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Medium</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">High</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="CLIENT_NAME_FILTER">Client Name</label>
+                <input name="CLIENT_NAME_FILTER" class="form-control" id="CLIENT_NAME_FILTER" maxlength="500" type="text" value=""><div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" for="OFFICE_FILTER">Office</label>
+                <input name="OFFICE_FILTER" class="form-control" id="OFFICE_FILTER" maxlength="500" type="text" value=""><div class="help-block with-errors"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="PARTNER_FILTER">Partner (NGGC)</label>
+                <input name="PARTNER_FILTER" class="form-control" id="PARTNER_FILTER" maxlength="500" type="text" value=""><div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="MANAGER_FILTER">Manager (NGGC)</label>
+                <input name="MANAGER_FILTER" class="form-control" id="MANAGER_FILTER" maxlength="500" type="text" value=""><div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" style="margin-bottom: 0;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="control-label" for="AGING_START_FILTER">Dias em Processo</label>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <input name="AGING_START_FILTER" class="form-control" id="AGING_START_FILTER" maxlength="5" type="text" value=""><div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="form-group text-center">
+                            <span>até</span>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <input name="AGING_END_FILTER" class="form-control" id="AGING_END_FILTER" maxlength="5" type="text" value=""><div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="PROJECT_FILTER">Projeto</label>
+                <select name="PROJECT_FILTER" class="form-control bs-select-hidden" data-val="true" data-val-number="The field PROJECT_FILTER must be a number." id="PROJECT_FILTER" maxlength="500"><option value=""></option>
+<option value="1">GR1</option>
+<option value="2">GR2</option>
+<option value="3">Interior SP / MG / GO</option>
+<option value="4">NNE</option>
+<option value="5">RIO</option>
+<option value="6">SP Audit RM</option>
+<option value="7">SUL</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="PROJECT_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">GR1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">GR2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Interior SP / MG / GO</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">NNE</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">RIO</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">SP Audit RM</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">SUL</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="STATUS_FILTER">Status</label>
+                <select name="STATUS_FILTER" class="form-control bs-select-hidden" id="STATUS_FILTER"><option value=""></option>
+<option value="Aprovado">Aprovado</option>
+<option value="Cancelado">Cancelado</option>
+<option value="Definir_Aprovadores">Definir Aprovadores</option>
+<option value="Devolvido_Ajustes">Devolvido para Revisor</option>
+<option value="Devolvido_Aprovador">Devolvido pelo Aprovador</option>
+<option value="Devolvido_Pre_Aprovador">Devolvido pelo Pré-Aprovador</option>
+<option value="Documento_Pendente">Documento Pendente</option>
+<option value="Follow_Up_Concluido">Follow Up Concluído</option>
+<option value="Pendente_Aprovacao">Pendente Aprovação</option>
+<option value="Pendente_Distribuicao">Pendente Distribuição</option>
+<option value="Pendente_Follow_Up">Pendente Follow Up</option>
+<option value="Pendente_Pre_Aprovacao">Pendente Pré-Aprovação</option>
+<option value="Pendente_PreRevisao">Pendente Pré-Revisão</option>
+<option value="Pendente_Revisao_Gerencia">Pendente Revisão Gerência</option>
+<option value="Pontos_Encaminhados">Pontos Encaminhados</option>
+<option value="Reprovado">Reprovado</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="STATUS_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Aprovado</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Cancelado</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Definir Aprovadores</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Devolvido para Revisor</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Devolvido pelo Aprovador</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Devolvido pelo Pré-Aprovador</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Documento Pendente</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Follow Up Concluído</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Pendente Aprovação</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Pendente Distribuição</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Pendente Follow Up</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Pendente Pré-Aprovação</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Pendente Pré-Revisão</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Pendente Revisão Gerência</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Pontos Encaminhados</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Reprovado</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" for="URGENCY">Urgente?</label>
+                <select name="URGENCY" class="form-control bs-select-hidden" id="URGENCY"><option value=""></option>
+<option value="true">Sim</option>
+<option value="false">Não</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="URGENCY"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Sim</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Não</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" for="DEPENDENCY">Existe Dependência?</label>
+                <select name="DEPENDENCY" class="form-control bs-select-hidden" id="DEPENDENCY"><option value=""></option>
+<option value="true">Sim</option>
+<option value="false">Não</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="DEPENDENCY"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Sim</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Não</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label class="control-label" for="OVERSIGHT_FILTER">Oversight</label>
+                <select name="OVERSIGHT_FILTER" class="form-control bs-select-hidden" id="OVERSIGHT_FILTER"><option value=""></option>
+<option value="NA">N/A</option>
+<option value="NotStarted">Não iniciado</option>
+<option value="Process">Em processo</option>
+<option value="Finished">Finalizado</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="OVERSIGHT_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">N/A</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Não iniciado</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Em processo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Finalizado</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="REVIEWER_GROUP_ID_FILTER">Grupo Revisor</label>
+                <select name="REVIEWER_GROUP_ID_FILTER" class="form-control bs-select-hidden" data-val="true" data-val-number="The field REVIEWER_GROUP_ID_FILTER must be a number." id="REVIEWER_GROUP_ID_FILTER"><option value=""></option>
+<option value="1">GR1</option>
+<option value="2">GR2</option>
+<option value="3">Interior SP / MG / GO</option>
+<option value="4">NNE</option>
+<option value="5">RIO</option>
+<option value="6">SP Audit RM</option>
+<option value="7">SUL</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="REVIEWER_GROUP_ID_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">GR1</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">GR2</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Interior SP / MG / GO</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">NNE</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">RIO</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">SP Audit RM</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">SUL</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="REVIEWER_USER_ID_FILTER">Profissional Revisor</label>
+                <select name="REVIEWER_USER_ID_FILTER" class="form-control bs-select-hidden" id="REVIEWER_USER_ID_FILTER"><option value=""></option>
+<option value="15539">Alexandre Toledo</option>
+<option value="16754">Aline Aparecida Cabral Padilha</option>
+<option value="11654">Ana Paula Mendes Barbato</option>
+<option value="3314">Andrea Sato Seara Fernandes</option>
+<option value="22001">Bianca Ventura Moral</option>
+<option value="12278">Carolina de Sena Oliveira Souza</option>
+<option value="21208">Debora Alves</option>
+<option value="10906">Douglas Lobosco Morette</option>
+<option value="12935">Edmilson Almerindo de Oliveira Leao Neto</option>
+<option value="11248">Eliane de Santana Almeida</option>
+<option value="22350">Eloizi Regina Gomes Silva</option>
+<option value="21237">Erica Patricia Maia</option>
+<option value="22219">Fabiana Langone Lopes</option>
+<option value="22023">Giovana Marin Dos Santos</option>
+<option value="12535">Karen Cristina Dal Ponte Fernandes</option>
+<option value="14385">Luciana de Cassia Ottaviano</option>
+<option value="21243">Mara Lucia Faria Torres</option>
+<option value="14302">Nathalia Carneiro Pessoa</option>
+<option value="12831">Pedro Barroso Silva Junior</option>
+<option value="12332">Priscila Damasceno de Melo</option>
+<option value="13189">Priscila Mottin Guiraud</option>
+<option value="19609">Rafael Mancini Pinheiro</option>
+<option value="14808">Renan Melo De Oliveira</option>
+<option value="15365">Ruth Manuela Bande Fernando</option>
+</select><div class="btn-group bootstrap-select form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="REVIEWER_USER_ID_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Alexandre Toledo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Aline Aparecida Cabral Padilha</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Ana Paula Mendes Barbato</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Andrea Sato Seara Fernandes</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Bianca Ventura Moral</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Carolina de Sena Oliveira Souza</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Debora Alves</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Douglas Lobosco Morette</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Edmilson Almerindo de Oliveira Leao Neto</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Eliane de Santana Almeida</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Eloizi Regina Gomes Silva</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Erica Patricia Maia</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Fabiana Langone Lopes</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Giovana Marin Dos Santos</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Karen Cristina Dal Ponte Fernandes</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Luciana de Cassia Ottaviano</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Mara Lucia Faria Torres</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Nathalia Carneiro Pessoa</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="19"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Pedro Barroso Silva Junior</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Priscila Damasceno de Melo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="21"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Priscila Mottin Guiraud</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="22"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Rafael Mancini Pinheiro</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="23"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Renan Melo De Oliveira</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="24"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Ruth Manuela Bande Fernando</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="APPROVER_ID_FILTER">Aprovador</label>
+                <select name="APPROVER_ID_FILTER" class="form-control bs-select-hidden" id="APPROVER_ID_FILTER" maxlength="500" multiple="multiple"><option value=""></option>
+<option value="20">Kalavacherla, Prabhakar S</option>
+<option value="21">Drake, Brian K</option>
+<option value="3">Carlos Eduardo Munhoz</option>
+<option value="17">Rogerio Vieira de Andrade</option>
+<option value="8">Eliane de Santana Almeida</option>
+<option value="4">Carlos Eduardo Paulino da Silva</option>
+<option value="14">Marco Antonio Pontieri</option>
+<option value="1">Alexandre Toledo</option>
+<option value="9">Eraldo Rezende Coelho</option>
+<option value="5">Carlos Humberto Rodrigues da Silva</option>
+<option value="13">Luis Claudio Franca de Araujo</option>
+</select><div class="btn-group bootstrap-select show-tick form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="APPROVER_ID_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Kalavacherla, Prabhakar S</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Drake, Brian K</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Carlos Eduardo Munhoz</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Rogerio Vieira de Andrade</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Eliane de Santana Almeida</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Carlos Eduardo Paulino da Silva</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Marco Antonio Pontieri</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Alexandre Toledo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Eraldo Rezende Coelho</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Carlos Humberto Rodrigues da Silva</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Luis Claudio Franca de Araujo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="PRE_APPROVER_ID_FILTER">Pré-Aprovador</label>
+                <select name="PRE_APPROVER_ID_FILTER" class="form-control bs-select-hidden" id="PRE_APPROVER_ID_FILTER" maxlength="500" multiple="multiple"><option value=""></option>
+<option value="19">Ana Paula Mendes Barbato</option>
+<option value="15">Priscila Mottin Guiraud</option>
+<option value="11">Luciana de Cassia Ottaviano</option>
+<option value="18">Ruth Manuela Bande Fernando</option>
+<option value="1">Alexandre Toledo</option>
+<option value="9">Eraldo Rezende Coelho</option>
+<option value="2">Andrea Sato Seara Fernandes</option>
+</select><div class="btn-group bootstrap-select show-tick form-control"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" data-id="PRE_APPROVER_ID_FILTER"><span class="filter-option pull-left">Nada selecionado</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner" role="menu"><li data-original-index="0"><a tabindex="0" class="" style="" data-tokens="null"><span class="text"></span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Ana Paula Mendes Barbato</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Priscila Mottin Guiraud</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Luciana de Cassia Ottaviano</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Ruth Manuela Bande Fernando</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Alexandre Toledo</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Eraldo Rezende Coelho</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">Andrea Sato Seara Fernandes</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div>
+        <button class="btn btn-default" id="btnClean">Limpar filtros</button>
+        <button id="btnSearch" class="btn btn-primary">Aplicar filtros</button>
+    </div>
+</div><table class="table dataTable no-footer" id="tableAllFieldsCeacs" role="grid" aria-describedby="tableAllFieldsCeacs_info">
+        <thead>
+            <tr role="row"><th class="chk-all-ceac sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 12px;"><input type="checkbox" id="chk-all-ceac-item-all"></th><th style="width: 11px;" class="sorting_disabled" rowspan="1" colspan="1" aria-label=""></th><th class="sorting_desc" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-sort="descending" aria-label="Ações: activate to sort column ascending" style="width: 53px;">Ações</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Urgente: activate to sort column ascending" style="width: 45px;">Urgente</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Observações: activate to sort column ascending" style="width: 75px;">Observações</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="CEAC ID: activate to sort column ascending" style="width: 46px;">CEAC ID</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="CEAC Type: activate to sort column ascending" style="width: 68px;">CEAC Type</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Evaluation Type: activate to sort column ascending" style="width: 67px;">Evaluation Type</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Client Name: activate to sort column ascending" style="width: 97px;">Client Name</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Risk Grade: activate to sort column ascending" style="width: 42px;">Risk Grade</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 51px;">Office</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Matrícula Partner: activate to sort column ascending" style="width: 52px;">Matrícula Partner</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Partner: activate to sort column ascending" style="width: 60px;">Partner</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Matrícula Manager: activate to sort column ascending" style="width: 52px;">Matrícula Manager</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Manager: activate to sort column ascending" style="width: 49px;">Manager</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Date Initially Submitted for Approval: activate to sort column ascending" style="width: 60px;">Date Initially Submitted for Approval</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Projeto: activate to sort column ascending" style="width: 41px;">Projeto</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Regulada: activate to sort column ascending" style="width: 57px;">Regulada</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Aprovador no CEAC: activate to sort column ascending" style="width: 112px;">Aprovador no CEAC</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Existe Dependência?: activate to sort column ascending" style="width: 82px;">Existe Dependência?</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Dias em Processo: activate to sort column ascending" style="width: 54px;">Dias em Processo</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 57px;">Status</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Grupo Revisor: activate to sort column ascending" style="width: 44px;">Grupo Revisor</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Profissional Revisor: activate to sort column ascending" style="width: 68px;">Profissional Revisor</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Situação Oversight: activate to sort column ascending" style="width: 56px;">Situação Oversight</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Profissional Revisor – Oversight: activate to sort column ascending" style="width: 68px;">Profissional Revisor – Oversight</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Posição na Aprovação: activate to sort column ascending" style="width: 62px;">Posição na Aprovação</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Aprovador Atual: activate to sort column ascending" style="width: 60px;">Aprovador Atual</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Aprovador Externo: activate to sort column ascending" style="width: 60px;">Aprovador Externo</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Data de Upload da Planilha: activate to sort column ascending" style="width: 60px;">Data de Upload da Planilha</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="Data de início do trabalho: activate to sort column ascending" style="width: 60px;">Data de início do trabalho</th><th class="sorting" tabindex="0" aria-controls="tableAllFieldsCeacs" rowspan="1" colspan="1" aria-label="SAN data 1°submissão: activate to sort column ascending" style="width: 74px;">SAN data 1°submissão</th></tr>
+        </thead>
+        <tbody id="bodyTableAllFieldsCeacs">
+
+            
+            
+            
+            
+
+        <tr id="80" data-id="80" data-ceac="9087041" data-oversight="0" data-oversight-owner="0" class="tr-ceac-item odd" role="row">
+                <td class="chk-all-ceac"><input type="checkbox" class="chk-all-ceac-item" data-ceac="9087041"></td>
+
+                <td class="sorting_1">
+                    <a href="#" class="check-details" id="details" data-id="80" ceac-id="9087041">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </a>
+                </td>
+
+                <td class="white-space-nowrap sorting_1">
+                    <a class="btn btn-primary btn-checklist" href="#" title="Checklist">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="btn btn-primary btn-grid-history" href="#" title="Histórico">
+                        <i class="fa fa-history" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="ceac-urgency-flag inactive" title="Clique para marcar como urgente">
+                        <i class="glyphicon glyphicon-flag"></i><span class="hidden">Não</span>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="ceac-obs-flag inactive" title="Clique para visualizar/editar a observação">
+                        <i class="glyphicon glyphicon-comment"></i><span class="hidden">Não</span>
+                    </a>
+                </td>
+                <td class="td-ceac-id">9087041</td>
+                <td>Client</td>
+                <td>Acceptance</td>
+                <td>MINAS TENIS CLUBE</td>
+                <td>Low</td>
+                <td>Belo Horizonte</td>
+                <td>11189</td>
+                <td>Augusto Silva Fernandes, Felipe</td>
+                <td>21818</td>
+                <td>Victor Oliveira de Alencar, Paulo</td>
+                <td>10/12/2019</td>
+                <td>Interior SP / MG / GO</td>
+                <td>No</td>
+                <td>LRMP</td>
+                <td class="text-center">
+                    <a class="btn btn-default ceac-dependency" title="Clique para gerenciar as dependências">
+                            <i class="fa fa-unlink icon-dependency icon-dependency-no"></i> <span>Não</span>
+                    </a>
+                </td>
+                <td>50</td>
+                <td class="td-status-id" data-status-id="16">Cancelado</td>
+                <td>SP Audit RM</td>
+                <td>
+Priscila Damasceno de Melo                </td>
+                <td>N/A</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Não</td>
+                <td>10/12/2019</td>
+                    <td>30/12/2019</td>
+                                    <td></td>
+            </tr><tr id="81" data-id="81" data-ceac="9087080" data-oversight="0" data-oversight-owner="0" class="tr-ceac-item even trclick" role="row">
+                <td class="chk-all-ceac"><input type="checkbox" class="chk-all-ceac-item" data-ceac="9087080"></td>
+
+                <td class="sorting_1">
+                    <a href="#" class="check-details" id="details" data-id="81" ceac-id="9087080">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </a>
+                </td>
+
+                <td class="white-space-nowrap sorting_1">
+                    <a class="btn btn-primary btn-checklist" href="#" title="Checklist">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="btn btn-primary btn-grid-history" href="#" title="Histórico">
+                        <i class="fa fa-history" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="ceac-urgency-flag inactive" title="Clique para marcar como urgente">
+                        <i class="glyphicon glyphicon-flag"></i><span class="hidden">Não</span>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="ceac-obs-flag inactive" title="Clique para visualizar/editar a observação">
+                        <i class="glyphicon glyphicon-comment"></i><span class="hidden">Não</span>
+                    </a>
+                </td>
+                <td class="td-ceac-id">9087080</td>
+                <td>Engagement</td>
+                <td>Acceptance</td>
+                <td>Minas Tenis Clube</td>
+                <td>Medium</td>
+                <td>Belo Horizonte</td>
+                <td>11189</td>
+                <td>Augusto Silva Fernandes, Felipe</td>
+                <td>21818</td>
+                <td>Victor Oliveira de Alencar, Paulo</td>
+                <td>10/12/2019</td>
+                <td>Interior SP / MG / GO</td>
+                <td>5. None of the above</td>
+                <td>LRMP</td>
+                <td class="text-center">
+                    <a class="btn btn-default ceac-dependency" title="Clique para gerenciar as dependências">
+                            <i class="fa fa-link icon-dependency icon-dependency-yes"></i> <span>Sim</span>
+                    </a>
+                </td>
+                <td>58</td>
+                <td class="td-status-id" data-status-id="14">Aprovado</td>
+                <td>GR1</td>
+                <td>
+Luciana de Cassia Ottaviano                </td>
+                <td>N/A</td>
+                <td></td>
+                <td>1/1</td>
+                <td>Carlos Eduardo Munhoz</td>
+                <td>Não</td>
+                <td>10/12/2019</td>
+                    <td>30/12/2019</td>
+                                    <td></td>
+            </tr><tr id="257" data-id="257" data-ceac="9135855" data-oversight="0" data-oversight-owner="0" class="tr-ceac-item odd" role="row">
+                <td class="chk-all-ceac"><input type="checkbox" class="chk-all-ceac-item" data-ceac="9135855"></td>
+
+                <td class="sorting_1">
+                    <a href="#" class="check-details" id="details" data-id="257" ceac-id="9135855">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </a>
+                </td>
+
+                <td class="white-space-nowrap sorting_1">
+                    <a class="btn btn-primary btn-checklist" href="#" title="Checklist">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="btn btn-primary btn-grid-history" href="#" title="Histórico">
+                        <i class="fa fa-history" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="ceac-urgency-flag active" title="Clique para desmarcar a urgência">
+                        <i class="glyphicon glyphicon-flag"></i><span class="hidden">Sim</span>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="ceac-obs-flag active" title="Clique para visualizar/editar a observação">
+                        <i class="glyphicon glyphicon-comment"></i><span class="hidden">Sim</span>
+                    </a>
+                </td>
+                <td class="td-ceac-id">9135855</td>
+                <td>Engagement</td>
+                <td>Continuance</td>
+                <td>COMPANHIA DE SANEAMENTO DE MINAS GERAIS,COPASA MG</td>
+                <td>High</td>
+                <td>Belo Horizonte</td>
+                <td>15758</td>
+                <td>Luiz de Menezes, Anderson</td>
+                <td>16978</td>
+                <td>Morais Lira, Renan</td>
+                <td>06/01/2020</td>
+                <td>Interior SP / MG / GO</td>
+                <td>1. Comissão de Valores Mobiliários - CVM</td>
+                <td>LRMP+CPPP+RPPP</td>
+                <td class="text-center">
+                    <a class="btn btn-default ceac-dependency" title="Clique para gerenciar as dependências">
+                            <i class="fa fa-unlink icon-dependency icon-dependency-no"></i> <span>Não</span>
+                    </a>
+                </td>
+                <td>40</td>
+                <td class="td-status-id" data-status-id="11">Pendente Aprovação</td>
+                <td>RIO</td>
+                <td>
+Rafael Mancini Pinheiro                </td>
+                <td>N/A</td>
+                <td></td>
+                <td>1/2</td>
+                <td>Carlos Eduardo Paulino da Silva</td>
+                <td>Sim</td>
+                <td>06/01/2020</td>
+                    <td>15/03/2020</td>
+                                    <td></td>
+            </tr><tr id="299" data-id="299" data-ceac="9129332" data-oversight="0" data-oversight-owner="0" class="tr-ceac-item even" role="row">
+                <td class="chk-all-ceac"><input type="checkbox" class="chk-all-ceac-item" data-ceac="9129332"></td>
+
+                <td class="sorting_1">
+                    <a href="#" class="check-details" id="details" data-id="299" ceac-id="9129332">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </a>
+                </td>
+
+                <td class="white-space-nowrap sorting_1">
+                    <a class="btn btn-primary btn-checklist" href="#" title="Checklist">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                    </a>
+
+                    <a class="btn btn-primary btn-grid-history" href="#" title="Histórico">
+                        <i class="fa fa-history" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="ceac-urgency-flag inactive" title="Clique para marcar como urgente">
+                        <i class="glyphicon glyphicon-flag"></i><span class="hidden">Não</span>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a class="ceac-obs-flag inactive" title="Clique para visualizar/editar a observação">
+                        <i class="glyphicon glyphicon-comment"></i><span class="hidden">Não</span>
+                    </a>
+                </td>
+                <td class="td-ceac-id">9129332</td>
+                <td>Client</td>
+                <td>Acceptance</td>
+                <td>Minas Tenis Clube</td>
+                <td>Low</td>
+                <td>Belo Horizonte</td>
+                <td>75</td>
+                <td>Tulio Fernandes Ferreira, Marco</td>
+                <td>21818</td>
+                <td>Victor Oliveira de Alencar, Paulo</td>
+                <td>07/01/2020</td>
+                <td>Interior SP / MG / GO</td>
+                <td>No</td>
+                <td>LRMP</td>
+                <td class="text-center">
+                    <a class="btn btn-default ceac-dependency" title="Clique para gerenciar as dependências">
+                            <i class="fa fa-unlink icon-dependency icon-dependency-no"></i> <span>Não</span>
+                    </a>
+                </td>
+                <td>4</td>
+                <td class="td-status-id" data-status-id="14">Aprovado</td>
+                <td>GR1</td>
+                <td>
+Luciana de Cassia Ottaviano                </td>
+                <td>N/A</td>
+                <td></td>
+                <td>1/1</td>
+                <td>Carlos Eduardo Munhoz</td>
+                <td>Não</td>
+                <td>08/01/2020</td>
+                    <td>13/01/2020</td>
+                                    <td></td>
+            </tr></tbody>
+    </table><div class="dataTables_info" id="tableAllFieldsCeacs_info" role="status" aria-live="polite">Mostrando página 1 de 1</div><div class="dataTables_paginate paging_simple_numbers" id="tableAllFieldsCeacs_paginate"><a class="paginate_button previous disabled" aria-controls="tableAllFieldsCeacs" data-dt-idx="0" tabindex="0" id="tableAllFieldsCeacs_previous">Anterior</a><span><a class="paginate_button current" aria-controls="tableAllFieldsCeacs" data-dt-idx="1" tabindex="0">1</a></span><a class="paginate_button next disabled" aria-controls="tableAllFieldsCeacs" data-dt-idx="2" tabindex="0" id="tableAllFieldsCeacs_next">Próximo</a></div></div>
+</div></div>
+</div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <p class="text-muted">
+                ©
+                <span id="indexAnoAtual">2020</span> KPMG Auditores Independentes, uma sociedade simples brasileira e firma-membro da rede KPMG de firmas-membro independentes e afiliadas à KPMG International Cooperative ("KPMG International"), uma entidade suíça. Todos os direitos reservados. Somente para uso interno.
+            </p>
+        </div>
+    </footer>
+
+
+    
+
+<div class="loading-overlay" style="display: none;">
+    <div class="loader"></div>
+
+    <div class="loading-container">
+        <span id="loading-message">Aguarde um momento...</span>
+    </div>
+</div>
+
+
+    
+
+
+
+<input type="hidden" id="ID" name="ID" value="<input type=&quot;checkbox&quot; class=&quot;chk-all-ceac-item&quot; data-ceac=&quot;9087080&quot;>"><div class="modal-backdrop fade in"></div><div class="modal bootstrap-dialog size-normal type-primary fade in" tabindex="-1" role="dialog" aria-hidden="false" id="fca67aa4-4c28-494e-8a34-5447bd20a608" aria-labelledby="fca67aa4-4c28-494e-8a34-5447bd20a608_title" style="z-index: 1040; display: block; padding-right: 17px;"><div class="modal-dialog" style="width: 80%;"><div class="modal-content"><div class="modal-header"><div class="bootstrap-dialog-header"><div class="bootstrap-dialog-close-button" style="display: none;"><button class="close">×</button></div><div class="bootstrap-dialog-title" id="fca67aa4-4c28-494e-8a34-5447bd20a608_title"><h4 class="modal-title">Dependência do CEAC</h4></div></div></div><div class="modal-body"><div class="bootstrap-dialog-body"><div class="bootstrap-dialog-message"><div id="sp-audit-dependency" class="modalMessage"><script src="/Scripts/app/Shared/dependency.js"></script>
+
+<nav class="navbar navbar-default actionbar">
+    <div class="container-fluid">
+        <div class="navbar-collapse collapse" id="navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+
+                    <li>
+                        <a id="btnSearchCeacDependency">
+                            <i class="fa fa-search"></i> Pesquisar CEAC
+                        </a>
+                    </li>
+
+                    <li class="actionBarEditLine">
+                        <a id="btnSaveDependency">
+                            <i class="glyphicon glyphicon-floppy-disk"></i> Salvar
+                        </a>
+                    </li>
+
+                <li>
+                    <a id="CloseModal" data-dismiss="modal">
+                        <i class="fa fa-step-backward"></i> Fechar
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<input id="jsonCeacTypeList" name="JsonCeacTypeList" type="hidden" value="[{&quot;VALUE&quot;:1,&quot;TEXT&quot;:&quot;Client&quot;},{&quot;VALUE&quot;:2,&quot;TEXT&quot;:&quot;Engagement&quot;}]">
+
+<input id="CEACDependencyItems" name="JsonCEACDependencyItems" type="hidden" value="[{&quot;ID&quot;:166,&quot;CEAC_ID&quot;:8924234,&quot;CEACType_DESCRIPTION&quot;:&quot;Engagement&quot;,&quot;CLIENT_NAME&quot;:&quot;HOSPITAL NOSSA SENHORA DAS NEVES&quot;,&quot;Status_DESCRIPTION&quot;:&quot;Pontos Encaminhados&quot;}]">
+
+<input id="READONLY_REMOVE" name="READONLY_REMOVE" type="hidden" value="False">
+
+<input id="READONLY_SAVE" name="READONLY_SAVE" type="hidden" value="False">
+
+<input data-val="true" data-val-number="The field ID must be a number." data-val-required="'ID' não pode ser nulo." id="ID_ITEM" name="CEACParent.ID" type="hidden" value="81">
+
+<div id="ErrorDiv">
+
+</div>
+
+<div id="ceac-parent">
+    <h3>CEAC Principal</h3>
+
+    <table class="table" id="tableCeacsDependencyParent">
+        <thead>
+            <tr>
+                <th>CEAC ID</th>
+                <th>CEAC Type</th>
+                <th>Client Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>9087080</td>
+                <td>Engagement</td>
+                <td>Minas Tenis Clube</td>
+                <td>Aprovado</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div id="container-tableCeacsDependency">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <h3>CEACs Dependentes</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="tableCeacsDependency_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_length" id="tableCeacsDependency_length"><label><select name="tableCeacsDependency_length" aria-controls="tableCeacsDependency" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> resultados por página</label></div><div id="tableCeacsDependency_filter" class="dataTables_filter"><label>Busca<input type="search" class="" placeholder="" aria-controls="tableCeacsDependency"></label></div><table class="table no-footer dataTable" id="tableCeacsDependency" role="grid" aria-describedby="tableCeacsDependency_info" style="width: 995px;"><thead><tr role="row"><th class="search_ceac_id sorting_asc" tabindex="0" aria-controls="tableCeacsDependency" rowspan="1" colspan="1" aria-label="CEAC ID: activate to sort column descending" style="width: 47px;" aria-sort="ascending">CEAC ID</th><th class="search_ceactype_description sorting" tabindex="0" aria-controls="tableCeacsDependency" rowspan="1" colspan="1" aria-label="CEAC Type: activate to sort column ascending" style="width: 107px;">CEAC Type</th><th class="search_client_name sorting" tabindex="0" aria-controls="tableCeacsDependency" rowspan="1" colspan="1" aria-label="Client Name: activate to sort column ascending" style="width: 475px;">Client Name</th><th class="search_status_description sorting" tabindex="0" aria-controls="tableCeacsDependency" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 236px;">Status</th><th class="text-center sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 20px;"></th></tr></thead><tbody><tr class="odd"><td valign="top" colspan="5" class="dataTables_empty">Nada encontrado</td></tr></tbody></table><div class="dataTables_info" id="tableCeacsDependency_info" role="status" aria-live="polite">Sem resultados disponíveis</div><div class="dataTables_paginate paging_simple_numbers" id="tableCeacsDependency_paginate"><a class="paginate_button previous disabled" aria-controls="tableCeacsDependency" data-dt-idx="0" tabindex="0" id="tableCeacsDependency_previous">Anterior</a><span></span><a class="paginate_button next disabled" aria-controls="tableCeacsDependency" data-dt-idx="1" tabindex="0" id="tableCeacsDependency_next">Próximo</a></div></div>
+</div>
+<div class="clear-both"></div></div></div></div></div><div class="modal-footer" style="display: none;"><div class="bootstrap-dialog-footer"></div></div></div></div></div><div class="blockUI" style="display:none"></div><div class="blockUI blockOverlay" style="display: none; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; position: fixed;"></div><div class="blockUI undefined blockPage" style="z-index:NaN;display:none;position:fixed"></div></body></html>
