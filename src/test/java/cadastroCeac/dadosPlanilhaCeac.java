@@ -1,6 +1,6 @@
-package ceacControlTests;
+package cadastroCeac;
 
-public class ceac {
+public class dadosPlanilhaCeac {
 
         private int ceacId;
         private String ceacType;
@@ -17,9 +17,9 @@ public class ceac {
         private String regulada;
         private String aprovadorNoCeac;
 
-        public ceac() { }
+        public dadosPlanilhaCeac() { }
 
-        public ceac (int ceacId, String ceacType, String evaluationType, String clientName, String riskGrade, String office, String partner, String manager, String dateInitiallySubmittedForApproval, String evaluationTypeLastYear,
+        public dadosPlanilhaCeac (int ceacId, String ceacType, String evaluationType, String clientName, String riskGrade, String office, String partner, String manager, String dateInitiallySubmittedForApproval, String evaluationTypeLastYear,
                 String riskGradeLastYear, String projeto, String regulada, String aprovadorNoCeac) {
             super();
             this.ceacId = ceacId;
